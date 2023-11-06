@@ -12,7 +12,7 @@
     for (var i = 0; i < reveals.length; i++) {
       var windowHeight = window.innerHeight;
       var elementTop = reveals[i].getBoundingClientRect().top;
-      var elementVisible = 150;
+      var elementVisible = 10;
 
       if (elementTop < windowHeight - elementVisible) {
         reveals[i].classList.add("active");
@@ -25,51 +25,57 @@
   window.addEventListener("scroll", reveal);
 </script>
 <body>
+<div id="iPad"></div>
+<nav>
+    <a href="#">Mainpage</a>
+</nav>
 <main>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
-    </div>
-    <div class="container reveal">
-        <strong class="reveal">This slowly appears</strong>
+    <div id="mainbox">
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
+        <div class="container reveal">
+            <strong class="reveal">This slowly appears</strong>
+        </div>
     </div>
 </main>
 </body>
