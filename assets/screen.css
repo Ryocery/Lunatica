@@ -1,5 +1,5 @@
 body {
-    background-image: url("afaddcb9d7dfaaf5bff7ef04101935814665ac16.webp");
+    background-image: url("graph-web-abstract-4k-hn.jpg");
     background-size: 120rem;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -9,10 +9,10 @@ nav {
     display: block;
     width: 60%;
     margin: auto;
-    border-radius: 1rem;
+    border-radius: 1rem 3rem;
     background-color: white;
     padding: 1.2rem;
-    border:0.2rem solid darkgoldenrod;
+    border:0.2rem solid #6EF4FF;
     animation-name: blinking;
     animation-duration: 0.5s;
     animation-iteration-count: infinite;
@@ -40,13 +40,13 @@ nav {
 
 @keyframes blinking {
     50% {
-        border-color: #f6e48a;
+        border-color: #d5fbff;
     }
 }
 
 div#iPad {
     position: sticky;
-    background-image: url("afaddcb9d7dfaaf5bff7ef04101935814665ac16.webp");
+    background-image: url("graph-web-abstract-4k-hn.jpg");
     background-size: 120rem;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -65,7 +65,7 @@ main, nav {
 
 #mainbox {
     border-radius: 1rem;
-    border:0.2rem solid darkgoldenrod;
+    border:0.1rem solid #6EF4FF;
     margin: 3rem;
     padding: 1rem;
     background-color: #214166;
@@ -73,20 +73,20 @@ main, nav {
 
 main {
     margin: 3rem auto auto;
-    border:0.2rem solid gold;
+    border:0.2rem solid #6EF4FF;
 }
 
-p {
+strong:not(#first) {
     display: block;
+    margin-top: 3rem;
 }
 
-.reveal{
+.reveal {
     color: black;
     position: relative;
     transform: translateY(150px);
     opacity: 0;
     transition: 1s all ease;
-    margin-top: 3rem;
 }
 
 .reveal.active{
