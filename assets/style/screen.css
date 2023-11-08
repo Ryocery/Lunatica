@@ -1,0 +1,45 @@
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+nav {
+    display: flex;
+    overflow: hidden;
+    margin: auto;
+    background-color: #0099ff;
+    border-bottom: 0.3rem solid #0077cc;
+    font-family: 'Kanit', sans-serif;
+}
+
+nav a {
+    margin-top: auto;
+    margin-bottom: auto;
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    border-left: 0.15rem solid #0077cc;
+    padding: 0.97rem;
+    transition: .4s ease;
+}
+
+nav a:hover {
+    background-color: white;
+    color: black;
+}
+
+nav a:last-of-type {
+    border-right: 0.15rem solid #0077cc;
+}
+
+nav p {
+    display: block;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: white;
+    padding-right: 3rem;
+    padding-left: 3rem;
+    margin: 0;
+    font-weight: bold;
+    user-select: none;
+}
