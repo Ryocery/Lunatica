@@ -8,6 +8,10 @@ body {
     background-image: url("../media/8455bc57cafc1049fc8eb6d40a240b0a.jpg");
 }
 
+@media (max-width : 770px) {
+    .loginbox{width: 40%}
+}
+
 nav {
     display: flex;
     overflow: hidden;
@@ -73,9 +77,7 @@ nav p {
 
 .loginbox input {
     font-family: "Montserrat";
-    padding: 0.3rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding: 0.3rem 1rem;
     background-color: white;
     border: none;
     outline: 0;
