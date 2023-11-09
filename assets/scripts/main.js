@@ -96,7 +96,7 @@ async function buttonEvent() {
   let email = document.getElementById('email').value
   let passwd = document.getElementById('passwd').value
 
-  if (!email.toLowerCase().includes("howest")) {
+  if (!email.toLowerCase().includes("howest") || !email.includes("@") || !email.includes(".")) {
     errorFlash(".loginbox")
     disableButton("button")
 
