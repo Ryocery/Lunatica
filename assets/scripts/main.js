@@ -1,5 +1,13 @@
 let loginCheck = false;
 
+document.getElementById("passwd")
+  .addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+      document.getElementById("button").click();
+    }
+  });
+
 gsap.set("nav", {
   y: -80,
 });
