@@ -4,8 +4,9 @@
 body {
     margin: 0;
     overflow: hidden;
-    background-color: #F3F3F3;
     background-image: url("../media/8455bc57cafc1049fc8eb6d40a240b0a.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 @media (max-width : 770px) {
