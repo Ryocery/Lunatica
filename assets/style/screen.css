@@ -58,7 +58,7 @@ nav p {
     border-radius: 1rem;
     display: block;
     padding: 3rem;
-    font-family: "Montserrat";
+    font-family: "Montserrat", serif;
     text-align: center;
     box-shadow: 0 0 10px;
     user-select: none;
@@ -76,7 +76,7 @@ nav p {
 }
 
 .loginbox input {
-    font-family: "Montserrat";
+    font-family: "Montserrat", serif;
     padding: 0.3rem 1rem;
     background-color: white;
     border: none;
@@ -100,7 +100,7 @@ nav p {
 button {
     cursor: pointer;
     margin-top: 1rem;
-    font-family: "Montserrat";
+    font-family: "Montserrat", serif;
     background-color: #0099ff;
     border: 0.2rem solid #0066ff;
     padding: 0.8rem 2rem;
