@@ -1,3 +1,5 @@
+let loginCheck = false;
+
 gsap.set("nav", {
   y: -80,
 });
@@ -10,27 +12,32 @@ gsap.set(".owner", {
   x: -230,
 });
 
+function navBarAppear() {
+  if (loginCheck === false) return;
+
+  gsap.to("nav", {
+    duration: 1,
+    delay: 0.5,
+    y: 0,
+  });
+
+  gsap.to(".owner", {
+    duration: 2,
+    delay: 2.5,
+    x: 0,
+  });
+
+  gsap.to("nav a", {
+    duration: 1.5,
+    ease:"none",
+    stagger: 0.2,
+    x: 0,
+  });
+}
+
+
 gsap.set(".loginbox", {
   y: 3230,
-});
-
-gsap.to("nav", {
-  duration: 1,
-  delay: 0.5,
-  y: 0,
-});
-
-gsap.to(".owner", {
-  duration: 2,
-  delay: 2.5,
-  x: 0,
-});
-
-gsap.to("nav a", {
-  duration: 1.5,
-  ease:"none",
-  stagger: 0.2,
-  x: 0,
 });
 
 gsap.to(".loginbox", {
@@ -96,7 +103,7 @@ async function buttonEvent() {
   let email = document.getElementById('email').value
   let passwd = document.getElementById('passwd').value
 
-  if (!email.toLowerCase().includes("howest") || !email.includes("@") || !email.includes(".")) {
+  if (!email.toLowerCase().includes("howest") || !email.includes("@") || !email.includes(".") || !email.includes(".com") && !email.includes(".be")) {
     errorFlash(".loginbox")
     disableButton("button")
 
@@ -129,6 +136,10 @@ async function buttonEvent() {
     resetLoginPara()
 
   } else {
+
+    loginCheck = true;
+    navBarAppear()
+
     gsap.to(".loginbox", {
       backgroundColor:"rgba(0,255,0,0.6)",
     });
@@ -138,6 +149,11 @@ async function buttonEvent() {
     await gsap.to(".loginbox", {
       delay:"3",
       backgroundColor:"transparent",
+    });
+
+    gsap.to(".loginbox", {
+      ease:"expoScale(0.5,7,none)",
+      y:900,
     });
 
     resetLoginPara()
