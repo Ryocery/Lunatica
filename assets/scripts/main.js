@@ -39,3 +39,107 @@ gsap.to(".loginbox", {
   duration: 1,
   y:0,
 });
+
+function errorFlash(element) {
+  gsap.to(element, {
+    duration:"0.1",
+    backgroundColor:"rgba(255,0,0,0.6)",
+  });
+
+  gsap.to(element, {
+    duration:"0.1",
+    delay:".2",
+    backgroundColor:"transparent",
+  });
+
+  gsap.to(element, {
+    duration:"0.1",
+    delay:".4",
+    backgroundColor:"rgba(255,0,0,0.6)",
+  });
+
+  gsap.to(element, {
+    duration:"0.1",
+    delay:".6",
+    backgroundColor:"transparent",
+  });
+}
+
+function resetLoginPara() {
+  document.getElementById("statuspara").innerHTML = "Let's make sure that you're supposed to be here"
+
+}
+
+async function disableButton(button) {
+  document.getElementById(button).disabled = true;
+
+  const t = gsap.to(button, {
+    duration:0.1,
+    backgroundColor: "rgba(0,0,0,0.2)",
+    color:"white",
+    cursor:"not-allowed",
+  });
+
+  await gsap.to(button, {
+    delay:4,
+    backgroundColor: "white",
+    color:"black",
+    cursor:"pointer",
+  });
+
+  t.revert()
+
+  document.getElementById(button).disabled = false;
+}
+
+async function buttonEvent() {
+  let email = document.getElementById('email').value
+  let passwd = document.getElementById('passwd').value
+
+  if (!email.toLowerCase().includes("howest")) {
+    errorFlash(".loginbox")
+    disableButton("button")
+
+    document.getElementById("statuspara").innerHTML = "The email field is invalid or is not from Howest!"
+
+    gsap.to("#statuspara", {
+      color: "rgba(255,0,0,0.8)",
+    });
+
+    await gsap.to("#statuspara", {
+      delay: 3,
+      color: "rgba(255,255,255,1)",
+    });
+
+    resetLoginPara()
+  } else if (passwd === '') {
+    errorFlash(".loginbox")
+    disableButton("button")
+    document.getElementById("statuspara").innerHTML = "The password field is invalid!"
+
+    gsap.to("#statuspara", {
+      color: "rgba(255,0,0,0.8)",
+    });
+
+    await gsap.to("#statuspara", {
+      delay: 3,
+      color: "rgba(255,255,255,1)",
+    });
+
+    resetLoginPara()
+
+  } else {
+    gsap.to(".loginbox", {
+      backgroundColor:"rgba(0,255,0,0.6)",
+    });
+
+    document.getElementById("statuspara").innerHTML = "OK! Logging in..."
+
+    await gsap.to(".loginbox", {
+      delay:"3",
+      backgroundColor:"transparent",
+    });
+
+    resetLoginPara()
+  }
+}
