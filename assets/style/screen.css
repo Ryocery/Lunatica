@@ -1,14 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@500&display=swap");
 body {
     margin: 0;
     overflow: hidden;
+    background-color: #F3F3F3;
+    background-image: url("../media/8455bc57cafc1049fc8eb6d40a240b0a.jpg");
 }
 
 nav {
     display: flex;
     overflow: hidden;
     margin: auto;
-    background-color: #0099ff;
-    border-bottom: 0.3rem solid #0077cc;
+    background-color: transparent;
+    border-bottom: 0.3rem solid transparent;
+    backdrop-filter: blur(20px);
     font-family: 'Kanit', sans-serif;
 }
 
@@ -18,7 +23,6 @@ nav a {
     display: inline-block;
     text-decoration: none;
     color: white;
-    border-left: 0.15rem solid #0077cc;
     padding: 0.97rem;
     transition: .4s ease;
 }
@@ -28,18 +32,90 @@ nav a:hover {
     color: black;
 }
 
-nav a:last-of-type {
-    border-right: 0.15rem solid #0077cc;
-}
-
 nav p {
     display: block;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
     color: white;
-    padding-right: 3rem;
-    padding-left: 3rem;
+    padding: 1rem 3rem;
     margin: 0;
     font-weight: bold;
     user-select: none;
+}
+
+.loginbox {
+    position: fixed;
+    width: 25%;
+    left: 50%;
+    transform: translate(-50%);
+    margin-top: 12rem;
+    border: solid 0.1rem transparent;
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    border-radius: 1rem;
+    display: block;
+    padding: 3rem;
+    font-family: "Montserrat";
+    text-align: center;
+    box-shadow: 0 0 10px;
+    user-select: none;
+}
+
+.loginbox p {
+    font-weight: bold;
+    font-size: 0.8rem;
+    line-height: 30%;
+}
+
+.loginbox p + p {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+}
+
+.loginbox input {
+    font-family: "Montserrat";
+    padding: 0.3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: white;
+    border: none;
+    outline: 0;
+    width: 85%;
+    line-height: 200%;
+    margin-bottom: 1rem;
+    border-radius: 0.6rem;
+    background-position: 96% 50%;
+    background-size: 20px;
+}
+
+.emailbox {
+    background: #fff url("../media/user.png") no-repeat;
+}
+
+.passwdbox {
+    background: #fff url("../media/padlock.png") no-repeat;
+}
+
+button {
+    cursor: pointer;
+    margin-top: 1rem;
+    font-family: "Montserrat";
+    background-color: #0099ff;
+    border: 0.2rem solid #0066ff;
+    padding: 0.8rem 2rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    color: white;
+    font-size: 16px;
+    transition: .2s;
+}
+
+button:hover {
+    background-color: white;
+    color: #0066ff;
+}
+
+button:active {
+    border: 0.2rem solid white;
+    transition: 0s;
 }
