@@ -53,7 +53,8 @@ nav p {
     left: 50%;
     transform: translate(-50%);
     margin-top: 12rem;
-    border: solid 0.1rem transparent;
+    border: 2px solid rgba(255,255,255,.2);
+    color: #fff;
     background-color: transparent;
     backdrop-filter: blur(20px);
     border-radius: 1rem;
@@ -61,7 +62,7 @@ nav p {
     padding: 3rem;
     font-family: "Montserrat", serif;
     text-align: center;
-    box-shadow: 0 0 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
     user-select: none;
 }
 
@@ -79,15 +80,22 @@ nav p {
 .loginbox input {
     font-family: "Montserrat", serif;
     padding: 0.3rem 1rem;
-    background-color: white;
-    border: none;
+    background-color: rgba(0,0, 0, 0.1);
+    border: 2px solid rgba(255,255,255,.3);
+    color: white;
     outline: 0;
     width: 85%;
     line-height: 200%;
     margin-bottom: 1rem;
-    border-radius: 0.6rem;
+    border-radius: 0.8rem;
     background-position: 96% 50%;
     background-size: 20px;
+    transition: .2s;
+}
+
+.loginbox input:focus, .loginbox input:hover{
+    background-color: white;
+    color: black;
 }
 
 .emailbox {
@@ -102,14 +110,15 @@ button {
     cursor: pointer;
     margin-top: 1rem;
     font-family: "Montserrat", serif;
-    background-color: #0099ff;
-    border: 0.2rem solid #0066ff;
-    padding: 0.8rem 2rem;
+    background-color: #fff;
+    border: none;
+    width: 92%;
+    padding: 0.7rem 2rem;
     border-radius: 1rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1rem;
-    color: white;
+    color: black;
     font-size: 16px;
     transition: .2s;
 }
@@ -120,6 +129,7 @@ button:hover {
 }
 
 button:active {
-    border: 0.2rem solid white;
+    background-color: black;
+    color: white;
     transition: 0s;
 }
