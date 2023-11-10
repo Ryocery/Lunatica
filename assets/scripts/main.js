@@ -95,6 +95,17 @@ gsap.to(".loginbox", {
   y:0,
 });
 
+gsap.set("#moon", {
+  y: -300,
+});
+
+gsap.to("#moon", {
+  delay: 2,
+  ease: "elastic.out(0.2,0.3)",
+  duration: 1,
+  y:0,
+});
+
 function errorFlash(element) {
   gsap.to(element, {
     duration:"0.1",
@@ -202,6 +213,11 @@ async function buttonEvent() {
     gsap.to(".loginbox", {
       ease:"expoScale(0.5,7,none)",
       y:900,
+    });
+
+    gsap.to("#moon", {
+      ease:"expoScale(0.5,7,none)",
+      y:-300,
     });
 
     resetLoginPara()

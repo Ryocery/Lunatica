@@ -53,6 +53,14 @@ nav p {
     user-select: none;
 }
 
+#moon {
+    position: fixed;
+    left: 50%;
+    transform: translate(-50%);
+    width: 5%;
+    margin-top: 2rem;
+}
+
 .loginbox {
     position: fixed;
     width: 25%;
