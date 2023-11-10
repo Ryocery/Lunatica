@@ -3,7 +3,9 @@ let loginCheck = false;
 document.getElementById("email")
   .addEventListener("keyup", async function(event) {
     event.preventDefault();
-    if (event.keyCode === 13) {
+    if (document.getElementById("passwd").value === "") {
+      document.getElementById("passwd").focus()
+    } else if (event.keyCode === 13) {
 
       const t = gsap.to("button", {
         duration: 0,
@@ -60,12 +62,12 @@ gsap.set(".owner", {
   x: -230,
 });
 
-function navBarAppear() {
+async function navBarAppear() {
   if (loginCheck === false) return;
 
-  gsap.to("nav", {
+  await gsap.to("nav", {
     duration: 1,
-    delay: 0.5,
+    delay: 1.5,
     y: 0,
   });
 
@@ -206,7 +208,7 @@ async function buttonEvent() {
     document.getElementById("statuspara").innerHTML = "OK! Logging in..."
 
     await gsap.to(".loginbox", {
-      delay:"3",
+      delay:"1.5",
       backgroundColor:"transparent",
     });
 
@@ -219,6 +221,8 @@ async function buttonEvent() {
       ease:"expoScale(0.5,7,none)",
       y:-300,
     });
+
+    navBarAppear()
 
     resetLoginPara()
   }
