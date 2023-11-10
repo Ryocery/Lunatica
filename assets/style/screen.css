@@ -25,7 +25,6 @@ nav {
     overflow: hidden;
     margin: auto;
     background-color: transparent;
-    border-bottom: 0.3rem solid transparent;
     backdrop-filter: blur(20px);
     font-family: 'Kanit', sans-serif;
 }
