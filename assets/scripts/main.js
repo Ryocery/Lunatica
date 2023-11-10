@@ -1,9 +1,49 @@
 let loginCheck = false;
 
-document.getElementById("passwd")
-  .addEventListener("keyup", function(event) {
+document.getElementById("email")
+  .addEventListener("keyup", async function(event) {
     event.preventDefault();
     if (event.keyCode === 13) {
+
+      const t = gsap.to("button", {
+        duration: 0,
+        backgroundColor: "black",
+        color: "white",
+      });
+
+      await gsap.to("button", {
+        duration: 0,
+        delay:0.2,
+        backgroundColor: "white",
+        color: "black",
+      });
+
+      t.revert()
+
+      document.getElementById("button").click();
+    }
+  });
+
+document.getElementById("passwd")
+  .addEventListener("keyup", async function(event) {
+    event.preventDefault();
+    if (event.keyCode === 13) {
+
+      const t = gsap.to("button", {
+        duration: 0,
+        backgroundColor: "black",
+        color: "white",
+      });
+
+      await gsap.to("button", {
+        duration: 0,
+        delay:0.2,
+        backgroundColor: "white",
+        color: "black",
+      });
+
+      t.revert()
+
       document.getElementById("button").click();
     }
   });
