@@ -202,7 +202,7 @@ async function dealerStart() {
 
 async function dealer() {
   let dCount = cardCounter(dealerHand)
-  await delay(randomValue(500, 3000))
+  await delay(randomValue(1000, 2000))
 
   if (dCount <= 21 && dCount >= 18) {
     dealerReady = true;
