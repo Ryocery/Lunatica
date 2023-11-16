@@ -103,7 +103,7 @@ async function hit(disable = true) {
   const roll = randomValue(0, gameDeck.length - 1)
   playerHand.push(gameDeck[roll])
   cardDrawSnd.play()
-  document.getElementById("playercards").innerHTML += `<img draggable="false" src="../assets/media/cards/${gameDeck[roll]}.png">`
+  document.getElementById("playercards").innerHTML += `<img alt="card" draggable="false" src="../assets/media/cards/${gameDeck[roll]}.png">`
   gameDeck[roll] = ""
   gameDeck = gameDeck.filter(e => String(e).trim());
 
@@ -185,7 +185,7 @@ function dealerHit(start = false) {
   const dealerRoll = randomValue(0, gameDeck.length - 1)
   dealerHand.push(gameDeck[dealerRoll])
   cardDrawSnd.play()
-  document.getElementById("dealercards").innerHTML += `<img draggable="false" src="../assets/media/cards/card_back.png">`
+  document.getElementById("dealercards").innerHTML += `<img alt="card" draggable="false" src="../assets/media/cards/card_back.png">`
   gameDeck[dealerRoll] = ""
   gameDeck = gameDeck.filter(e => String(e).trim());
 
@@ -233,7 +233,7 @@ async function stand() {
   cardDrawSnd.play()
 
   for (let i = 0; i < dealerHand.length; i++) {
-    document.getElementById("dealercards").innerHTML += `<img draggable="false" src="../assets/media/cards/${dealerHand[i]}.png">`
+    document.getElementById("dealercards").innerHTML += `<img alt="card" draggable="false" src="../assets/media/cards/${dealerHand[i]}.png">`
   }
 
   await window.onload
