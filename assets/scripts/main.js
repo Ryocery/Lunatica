@@ -37,8 +37,11 @@ async function mainSelect(item) {
   window.location.replace("./games/" + item.id + ".html")
 }
 
-// Extra
+// - - - - - - - //
+// - - Extra - - //
+// - - - - - - - //
 
+// For use in Async functions, delays next line of code by (time) milliseconds.
 function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }

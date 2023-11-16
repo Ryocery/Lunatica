@@ -62,4 +62,5 @@ main {
 .game img {
     width: 100%;
     height: auto;
+    pointer-events: none;
 }
