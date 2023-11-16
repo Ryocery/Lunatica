@@ -112,5 +112,5 @@ body {
     font-weight: bold;
     margin-right: 1rem;
     font-size: 4rem;
-    background-clip: text;
+    -webkit-background-clip: text;
 }

@@ -122,9 +122,11 @@ async function hit(disable = true, double = false) {
       color:"red",
     });
 
-    enableControls()
-    stand()
-    return;
+    if (!double) {
+      enableControls()
+      stand()
+      return;
+    }
   }
 
   if (disable && !double) {
@@ -137,7 +139,7 @@ async function double() {
   disableControls()
   hit(false, true)
   await delay(1000)
-  await enableControls()
+  enableControls()
   stand()
 }
 
