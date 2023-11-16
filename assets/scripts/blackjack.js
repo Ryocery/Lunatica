@@ -98,8 +98,8 @@ async function dealCards() {
   await enableControls()
 }
 
-async function hit(disable = true) {
-  if (disable) {disableControls()}
+async function hit(disable = true, double = false) {
+  if (disable && !double) {disableControls()}
   const roll = randomValue(0, gameDeck.length - 1)
   playerHand.push(gameDeck[roll])
   cardDrawSnd.play()
@@ -122,15 +122,12 @@ async function hit(disable = true) {
       color:"red",
     });
 
-    if (disable) {
-      await enableControls()
-    }
-
+    enableControls()
     stand()
     return;
   }
 
-  if (disable) {
+  if (disable && !double) {
     await delay(1000)
     await enableControls()
   }
@@ -138,7 +135,7 @@ async function hit(disable = true) {
 
 async function double() {
   disableControls()
-  hit(false)
+  hit(false, true)
   await delay(1000)
   await enableControls()
   stand()
