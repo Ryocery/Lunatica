@@ -140,6 +140,7 @@ async function double() {
   disableControls()
   hit(false)
   await delay(1000)
+  await enableControls()
   stand()
 }
 
