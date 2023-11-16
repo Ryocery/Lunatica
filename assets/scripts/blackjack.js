@@ -330,7 +330,7 @@ async function stand() {
   dealerHand = []
   dealerReady = false
 
-  document.getElementById("dealercards").innerHTML = "<p class=\"count\" id=\"dealercount\"></p>"
+  document.getElementById("dealercards").innerHTML = ""
   document.getElementById("playercards").innerHTML = "<p class=\"count\" id=\"playercount\"></p>"
 
   await enableControls()
