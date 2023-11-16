@@ -14,14 +14,14 @@ body {
     overflow: hidden;
 }
 
-#dealer {
+#dealerBox {
     top:25%;
     left:50%;
     background-color: rgba(255,255,255,0.3);
     border: 0.3rem solid rgba(255,255,255,0.5);
 }
 
-#player {
+#playerBox {
     top:60%;
     left:50%;
     background-color: rgba(255,255,255,0.3);
@@ -39,7 +39,7 @@ body {
     user-select: none;
 }
 
-.cardbox p {
+.titlebox {
     position: absolute;
     top: -49px;
     background-color: rgba(255,255,255,0.65);
@@ -54,7 +54,6 @@ body {
     list-style: none;
     position: relative;
     display: flex;
-    justify-content: center;
     align-items: center;
     height: 100%;
     gap:1rem;
@@ -94,6 +93,7 @@ body {
     background-color: white;
     font-size: 1.3rem;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #playercontrols button:hover {
@@ -106,3 +106,11 @@ body {
     color: white;
 }
 
+.count {
+    color: transparent;
+    font-family: "Montserrat";
+    font-weight: bold;
+    margin-right: 1rem;
+    font-size: 4rem;
+    background-clip: text;
+}

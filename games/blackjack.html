@@ -9,21 +9,24 @@
 <audio id="backgroundmusic" src="../assets/media/mus_wd_trainingclementine.mp3" loop autoplay></audio>
 <audio id="backgroundambience" src="../assets/media/casino-ambiance-19130.mp3" loop autoplay></audio>
 
-<div class="cardbox" id="dealer">
-    <p>Dealer's Cards</p>
+<div class="cardbox" id="dealerBox">
+    <p class="titlebox">Dealer's Cards</p>
     <div class="cards" id="dealercards">
+        <p class="count" id="dealercount"></p>
+
     </div>
 </div>
-<div class="cardbox" id="player">
-    <p>Player's Cards</p>
+<div class="cardbox" id="playerBox">
+    <p class="titlebox">Player's Cards</p>
     <div class="cards" id="playercards">
+        <p class="count" id="playercount">6</p>
 
     </div>
 </div>
 <div id="playercontrols">
-    <button>Hit</button>
-    <button>Stand</button>
-    <button>Double</button>
+    <button id="hitB" onclick="hit()">Hit</button>
+    <button id="standB" onclick="stand()">Stand</button>
+    <button id="doubleB" onclick="double()">Double</button>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="../assets/scripts/blackjack.js"></script>
