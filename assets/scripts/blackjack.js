@@ -54,6 +54,10 @@ let d
 let pl
 let de
 
+let controls
+let bets
+let betReady = false
+
 function disableControls() {
   h = gsap.set(hitB, {
     backgroundColor:"rgba(255, 255, 255, 0.3)",
@@ -335,9 +339,60 @@ async function stand() {
 
   await enableControls()
 
-  dealCards()
-  dealerStart()
+  betReady = false
+  placeBet()
 }
 
-dealerStart()
-dealCards()
+async function betButton () {
+  betReady = true
+}
+
+async function placeBet() {
+  disableControls()
+  gsap.to(playercontrols, {
+    delay:1,
+    ease: "power1.out",
+    duration: 3,
+    y:500,
+  });
+
+  gsap.set(betcontrols, {
+    y:500,
+  });
+
+  gsap.to(betcontrols, {
+    delay:1,
+    ease: "power1.out",
+    duration: 3,
+    y:0,
+  });
+
+  while (betReady !== true) {
+    await delay(0.25)
+  }
+
+  gsap.to(betcontrols, {
+    ease: "power1.out",
+    duration: 3,
+    y:500,
+  });
+
+  await gsap.to(playercontrols, {
+    delay:1,
+    ease: "power1.out",
+    duration: 3,
+    y:0,
+  });
+
+  await enableControls()
+
+  play()
+}
+
+function play() {
+
+  dealerStart()
+  dealCards()
+}
+
+placeBet()
