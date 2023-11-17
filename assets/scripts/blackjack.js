@@ -49,6 +49,7 @@ let gameDeck = [...deck]
 let playerHand = []
 let dealerHand = []
 let dealerReady = false
+let disableDouble = false;
 
 let h
 let s
@@ -140,6 +141,13 @@ async function hit(disable = true, double = false) {
 }
 
 async function double() {
+
+  while (moneyCalcActive) {
+    await delay(250)
+  }
+
+  if(balance < document.querySelector("#betmoney").value) return;
+
   disableControls()
   hit(false, true)
   await delay(1000)
@@ -398,6 +406,14 @@ async function placeBet() {
 
   while (betReady !== true) {
     await delay(0.25)
+  }
+
+  while (balance < document.querySelector("#betmoney").value) {
+    betReady = false
+
+    while (betReady !== true) {
+      await delay(0.25)
+    }
   }
 
   moneyLogic(-1 * document.querySelector("#betmoney").value)
