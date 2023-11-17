@@ -21,9 +21,17 @@ const suite = [
   "King"
 ];
 
+const backgroundMusic = [
+  "../assets/media/mus_wd_trainingclementine.mp3",
+  "../assets/media/mus_snm_twilighteternal.mp3",
+  "../assets/media/mus_vb_novacancy.mp3",
+  "../assets/media/mus_wd_darkrooms.mp3",
+]
+
 let cardDrawSnd = new Audio("../assets/media/flipcard-91468.mp3")
 let cashDrawSnd = new Audio("../assets/media/money-counter-95830.mp3")
 let winSnd = new Audio("../assets/media/cash-register-fake-88639.mp3")
+let denySnd = new Audio("../assets/media/wrong-47985.mp3")
 
 const deck = [];
 
@@ -45,11 +53,13 @@ function delay(time) {
   return new Promise(resolve => setTimeout(resolve, time));
 }
 
+let musicNumber = randomValue(0, backgroundMusic.length - 1)
+document.getElementById("backgroundmusic").src = backgroundMusic[musicNumber]
+
 let gameDeck = [...deck]
 let playerHand = []
 let dealerHand = []
 let dealerReady = false
-let disableDouble = false;
 
 let h
 let s
@@ -141,14 +151,19 @@ async function hit(disable = true, double = false) {
 }
 
 async function double() {
+  disableControls()
 
   while (moneyCalcActive) {
     await delay(250)
   }
 
-  if(balance < document.querySelector("#betmoney").value) return;
+  if(balance < document.querySelector("#betmoney").value) {
+    await delay(1000)
+    denySnd.play()
+    enableControls()
+    return;
+  }
 
-  disableControls()
   hit(false, true)
   await delay(1000)
   enableControls()
@@ -410,6 +425,7 @@ async function placeBet() {
 
   while (balance < document.querySelector("#betmoney").value) {
     betReady = false
+    denySnd.play()
 
     while (betReady !== true) {
       await delay(0.25)
@@ -433,10 +449,6 @@ async function placeBet() {
 
   await enableControls()
 
-  play()
-}
-
-function play() {
   dealerStart()
   dealCards()
 }
