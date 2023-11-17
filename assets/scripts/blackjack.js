@@ -61,19 +61,16 @@ let betReady = false
 function disableControls() {
   h = gsap.set(hitB, {
     backgroundColor:"rgba(255, 255, 255, 0.3)",
-    border:"0.3rem solid rgba(255, 255, 255, 0.3)",
     pointerEvents:"none",
   });
 
   s = gsap.set(standB, {
     backgroundColor:"rgba(255, 255, 255, 0.3)",
-    border:"0.3rem solid rgba(255, 255, 255, 0.3)",
     pointerEvents:"none",
   });
 
   d = gsap.set(doubleB, {
     backgroundColor:"rgba(255, 255, 255, 0.3)",
-    border:"0.3rem solid rgba(255, 255, 255, 0.3)",
     pointerEvents:"none",
   });
 
