@@ -506,7 +506,7 @@ async function moneyLogic(value = 0) {
   await delay(700)
 
   for (let i = 0; i < fit; i++) {
-    await delay(1)
+    await delay(15)
     moneyCalc -= unit
     balance += unit
     document.getElementById("moneycalc").innerHTML = ttCash(Math.floor(moneyCalc))
