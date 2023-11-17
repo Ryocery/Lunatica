@@ -141,7 +141,7 @@ async function double() {
   hit(false, true)
   await delay(1000)
   enableControls()
-  stand()
+  stand(true)
 }
 
 function cardCounter (currentHand) {
@@ -220,7 +220,9 @@ async function dealer() {
   }
 }
 
-async function stand() {
+let win
+
+async function stand(double = false) {
   disableControls()
 
   while (!dealerReady) {
@@ -262,6 +264,7 @@ async function stand() {
       backgroundColor: "rgba(255,150,0,0.2)",
       border: "0.3rem solid rgba(255,150,0,0.5)",
     });
+    win = 0.5
   } else if (pCount <= 21 && dCount > 21) {
     pl = gsap.to(playerBox, {
       duration:2,
@@ -273,6 +276,7 @@ async function stand() {
       backgroundColor: "rgba(255,0,0,0.2)",
       border: "0.3rem solid rgba(255,0,0,0.5)",
     });
+    win = 1
   } else if (pCount > 21 && dCount <= 21) {
     pl = gsap.to(playerBox, {
       duration:2,
@@ -284,6 +288,7 @@ async function stand() {
       backgroundColor: "rgba(0,255,0,0.2)",
       border: "0.3rem solid rgba(0,255,0,0.5)",
     });
+    win = 0
   } else if (pCount === dCount) {
     pl = gsap.to(playerBox, {
       duration:2,
@@ -295,6 +300,7 @@ async function stand() {
       backgroundColor: "rgba(255,150,0,0.2)",
       border: "0.3rem solid rgba(255,150,0,0.5)",
     });
+    win = 0.5
   } else {
     if (pCount > dCount) {
       pl = gsap.to(playerBox, {
@@ -307,6 +313,7 @@ async function stand() {
         backgroundColor: "rgba(255,0,0,0.2)",
         border: "0.3rem solid rgba(255,0,0,0.5)",
       });
+      win = 1
     } else {
       pl = gsap.to(playerBox, {
         duration: 2,
@@ -318,10 +325,30 @@ async function stand() {
         backgroundColor: "rgba(0,255,0,0.2)",
         border: "0.3rem solid rgba(0,255,0,0.5)",
       });
+      win = 0
     }
   }
 
-  await delay(5000)
+  let delayNr = 5000
+
+  if (!double) {
+    if (win === 1) {
+      moneyLogic(document.querySelector("#betmoney").value * 2)
+    } else if (win === 0.5) {
+      moneyLogic(document.querySelector("#betmoney").value)
+    }
+  } else {
+    if (win === 1) {
+      moneyLogic(document.querySelector("#betmoney").value * 3)
+    } else if (win === 0.5) {
+      moneyLogic(document.querySelector("#betmoney").value)
+    } else if (win === 0) {
+      await moneyLogic(-1 * document.querySelector("#betmoney").value)
+      delayNr = 1000
+    }
+  }
+
+  await delay(delayNr)
   pl.revert()
   de.revert()
 
@@ -345,6 +372,7 @@ async function betButton () {
 
 async function placeBet() {
   disableControls()
+
   gsap.to(playercontrols, {
     delay:1,
     ease: "power1.out",
@@ -367,6 +395,8 @@ async function placeBet() {
     await delay(0.25)
   }
 
+  moneyLogic(-1 * document.querySelector("#betmoney").value)
+
   gsap.to(betcontrols, {
     ease: "power1.out",
     duration: 3,
@@ -386,35 +416,88 @@ async function placeBet() {
 }
 
 function play() {
-
   dealerStart()
   dealCards()
 }
 
-let balance = document.getElementById("balance").innerHTML.replace(" ", "")
-let moneyCalc = document.getElementById("moneycalc").innerHTML.replace(" ", "")
+let balance = document.getElementById("balance").innerHTML.replace(",", "")
+let moneyCalc = document.getElementById("moneycalc").innerHTML.replace(",", "")
 balance = parseInt(balance.replace("$", ""))
 moneyCalc = parseInt(moneyCalc.replace("$", ""))
 
+let moneyCalcActive = false;
+
 async function moneyLogic(value = 0) {
-  let fit = Math.abs(value / 50)
-  let unit = 50
+
+  while (moneyCalcActive) {
+    await delay(250)
+  }
+
+  moneyCalcActive = true
+  let fitter
+
+  if (Math.abs(value) <= 2000) {
+    fitter = 10
+  } else if (Math.abs(value) <= 10000) {
+    fitter = 100
+  } else if (Math.abs(value) <= 50000) {
+    fitter = 250
+  } else {
+    fitter = 500
+  }
+
+  let fit = Math.abs(value / fitter)
+  let unit = fitter
 
   if (value < 0) {
     unit = -unit
+
+    gsap.set(moneycalc, {
+      color:"red",
+    });
+  } else {
+    gsap.set(moneycalc, {
+      color:"green",
+    });
   }
 
-  document.getElementById("moneycalc").innerHTML = value
+  gsap.set(moneycalc, {
+    x:-300,
+  });
+
+  document.getElementById("moneycalc").innerHTML = ttCash(value)
   moneyCalc = value
+
+  await gsap.to(moneycalc, {
+    duration:2,
+    ease: "expoScale(0.5,7,none)",
+    x:0,
+  });
+
+  await delay(1000)
 
   for (let i = 0; i < fit; i++) {
     await delay(1)
     moneyCalc -= unit
     balance += unit
-    document.getElementById("moneycalc").innerHTML = "$" + moneyCalc.toString()
-    document.getElementById("balance").innerHTML = "$" + balance.toString()
+    document.getElementById("moneycalc").innerHTML = ttCash(moneyCalc)
+    document.getElementById("balance").innerHTML = ttCash(balance)
   }
 
+  await delay(1000)
+
+  await gsap.to(moneycalc, {
+    duration:2,
+    x:-300,
+  });
+
+  moneyCalcActive = false
+}
+
+function ttCash(number) {
+  let formattedNumber = new Intl.NumberFormat().format(number);
+  let moneyString = `$${formattedNumber}`;
+  return moneyString.replaceAll("$-", "-$");
 }
 
 placeBet()

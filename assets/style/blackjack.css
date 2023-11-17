@@ -141,7 +141,7 @@ body {
 }
 
 #betcontrols select:hover {
-    border: 0.15rem solid black;
+    border: 0.3rem solid black;
 }
 
 #betcontrols button {
@@ -191,7 +191,7 @@ body {
 #moneybox p + p {
     margin: 0.3rem 0;
     font-size: 1.1rem;
-    color: red;
+    font-weight: bold;
 }
 
 @media (max-height: 900px) {
