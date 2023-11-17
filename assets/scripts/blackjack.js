@@ -158,8 +158,10 @@ async function double() {
   }
 
   if(balance < document.querySelector("#betmoney").value) {
-    await delay(1000)
     denySnd.play()
+    await delay(1000)
+    denySnd.pause()
+    denySnd.currentTime = 0
     enableControls()
     return;
   }
@@ -396,6 +398,7 @@ async function stand(double = false) {
 
 async function betButton () {
   betReady = true
+  denySnd.currentTime = 0
 }
 
 async function placeBet() {
