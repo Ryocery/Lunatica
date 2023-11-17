@@ -172,6 +172,28 @@ body {
     margin: 0 0 1rem;
 }
 
+#moneybox {
+    font-family: "Montserrat", serif;
+    color: white;
+    margin-top: 2rem;
+    display: block;
+    width: fit-content;
+    text-align: right;
+}
+
+#balance {
+    margin: 0;
+    font-size: 1.3rem;
+    background: darkgreen;
+    padding: 0.4rem 3rem;
+}
+
+#moneybox p + p {
+    margin: 0.3rem 0;
+    font-size: 1.1rem;
+    color: red;
+}
+
 @media (max-height: 900px) {
     #playerBox {
         top: 64%;

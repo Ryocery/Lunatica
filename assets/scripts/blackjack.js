@@ -391,4 +391,30 @@ function play() {
   dealCards()
 }
 
+let balance = document.getElementById("balance").innerHTML.replace(" ", "")
+let moneyCalc = document.getElementById("moneycalc").innerHTML.replace(" ", "")
+balance = parseInt(balance.replace("$", ""))
+moneyCalc = parseInt(moneyCalc.replace("$", ""))
+
+async function moneyLogic(value = 0) {
+  let fit = Math.abs(value / 50)
+  let unit = 50
+
+  if (value < 0) {
+    unit = -unit
+  }
+
+  document.getElementById("moneycalc").innerHTML = value
+  moneyCalc = value
+
+  for (let i = 0; i < fit; i++) {
+    await delay(1)
+    moneyCalc -= unit
+    balance += unit
+    document.getElementById("moneycalc").innerHTML = "$" + moneyCalc.toString()
+    document.getElementById("balance").innerHTML = "$" + balance.toString()
+  }
+
+}
+
 placeBet()
