@@ -231,7 +231,6 @@ async function stand() {
   let dCount = cardCounter(dealerHand)
 
   document.getElementById("dealercards").innerHTML = "<p class=\"count\" id=\"dealercount\"></p>"
-  cardDrawSnd.play()
 
   for (let i = 0; i < dealerHand.length; i++) {
     document.getElementById("dealercards").innerHTML += `<img alt="card" draggable="false" src="../assets/media/cards/${dealerHand[i]}.png">`

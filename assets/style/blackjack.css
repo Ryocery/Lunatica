@@ -179,7 +179,7 @@ body {
 
     #betcontrols {
         top:90%;
-        padding: 1.2rem;
+        padding: 0.8rem;
     }
 
     #betcontrols p {
@@ -196,7 +196,7 @@ body {
     }
 
     #betcontrols select {
-        padding: 0.3rem 2rem;
+        padding: 0.3rem 2vw;
         border: 0.15rem solid white;
     }
 
@@ -205,7 +205,8 @@ body {
     }
 
     #playercontrols {
-        top:85%
+        top:85%;
+        left:50%;
     }
 
     #playercontrols button {
@@ -215,5 +216,34 @@ body {
     .titlebox {
         top: -42.1px;
         font-size: 1.1rem;
+    }
+}
+
+@media (max-height: 590px) {
+    #betcontrols {
+        top:90.5%;
+        padding: 0.3rem;
+    }
+
+    #betcontrols p {
+        font-size: 0.8rem;
+    }
+
+    #betcontrols button {
+        padding: 0.2rem 1rem;
+    }
+
+    #betcontrols select {
+        padding: 0.2rem 2vw;
+    }
+
+    .titlebox {
+        top: -26.1px;
+        font-size: 0.8rem;
+        padding: 0.2rem 3rem;
+    }
+
+    #playercontrols {
+        top:88%;
     }
 }
