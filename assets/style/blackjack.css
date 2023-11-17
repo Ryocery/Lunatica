@@ -179,6 +179,7 @@ body {
     display: block;
     width: fit-content;
     text-align: right;
+    user-select: none;
 }
 
 #balance {
