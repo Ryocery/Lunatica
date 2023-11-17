@@ -247,3 +247,17 @@ body {
         top:88%;
     }
 }
+
+@media (max-height: 500px) {
+    .titlebox {
+        display: none;
+    }
+
+    #playercontrols button {
+        padding: 2dvh 2dvw;
+    }
+
+    #betcontrols {
+        width: 60dvw;
+    }
+}
