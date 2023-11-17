@@ -184,8 +184,13 @@ body {
 #balance {
     margin: 0;
     font-size: 1.3rem;
+    display: block;
     background: darkgreen;
-    padding: 0.4rem 3rem;
+    text-align: center;
+    vertical-align: center;
+    min-width: 14rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 #moneybox p + p {
