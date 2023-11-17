@@ -22,6 +22,9 @@ const suite = [
 ];
 
 let cardDrawSnd = new Audio("../assets/media/flipcard-91468.mp3")
+let cashDrawSnd = new Audio("../assets/media/money-counter-95830.mp3")
+let winSnd = new Audio("../assets/media/cash-register-fake-88639.mp3")
+
 const deck = [];
 
 for (let i = 0; i < types.length; i++) {
@@ -333,12 +336,14 @@ async function stand(double = false) {
 
   if (!double) {
     if (win === 1) {
+      winSnd.play()
       moneyLogic(document.querySelector("#betmoney").value * 2)
     } else if (win === 0.5) {
       moneyLogic(document.querySelector("#betmoney").value)
     }
   } else {
     if (win === 1) {
+      winSnd.play()
       moneyLogic(document.querySelector("#betmoney").value * 3)
     } else if (win === 0.5) {
       moneyLogic(document.querySelector("#betmoney").value)
@@ -434,17 +439,7 @@ async function moneyLogic(value = 0) {
   }
 
   moneyCalcActive = true
-  let fitter
-
-  if (Math.abs(value) <= 2000) {
-    fitter = 10
-  } else if (Math.abs(value) <= 10000) {
-    fitter = 100
-  } else if (Math.abs(value) <= 50000) {
-    fitter = 250
-  } else {
-    fitter = 500
-  }
+  let fitter = Math.abs(value) / 160
 
   let fit = Math.abs(value / fitter)
   let unit = fitter
@@ -474,14 +469,16 @@ async function moneyLogic(value = 0) {
     x:0,
   });
 
-  await delay(1000)
+  cashDrawSnd.play()
+
+  await delay(700)
 
   for (let i = 0; i < fit; i++) {
     await delay(1)
     moneyCalc -= unit
     balance += unit
-    document.getElementById("moneycalc").innerHTML = ttCash(moneyCalc)
-    document.getElementById("balance").innerHTML = ttCash(balance)
+    document.getElementById("moneycalc").innerHTML = ttCash(Math.floor(moneyCalc))
+    document.getElementById("balance").innerHTML = ttCash(Math.floor(balance))
   }
 
   await delay(1000)
