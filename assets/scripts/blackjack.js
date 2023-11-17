@@ -398,6 +398,7 @@ async function stand(double = false) {
 
 async function betButton () {
   betReady = true
+  denySnd.pause()
   denySnd.currentTime = 0
 }
 
