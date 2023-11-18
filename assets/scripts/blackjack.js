@@ -514,14 +514,14 @@ let moneyCalcActive = false;
 
 async function moneyLogic(value = 0) {
 
+  while (moneyCalcActive) {
+    await delay(250)
+  }
+
   if (value > 0) {
     profitStat += value
   } else {
     lossStat += value
-  }
-
-  while (moneyCalcActive) {
-    await delay(250)
   }
 
   moneyCalcActive = true
