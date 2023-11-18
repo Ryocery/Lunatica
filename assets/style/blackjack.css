@@ -229,6 +229,8 @@ body {
 }
 
 #statbox p:not(#innerstatbox p) {
+    background-color: #004800;
+    width: fit-content;
     font-size: 2rem;
     margin: 0 0 1rem;
     font-weight: bold;
@@ -237,7 +239,8 @@ body {
 
 #innerstatbox {
     padding: 1rem;
-    border: 0.1rem solid #004800;
+    border: 0.2rem solid #004800;
+    border-radius: 0.5rem;
     background-color: #002f00;
     line-height: 1.3rem;
 }
