@@ -419,7 +419,7 @@ async function stand(double = false) {
 async function statMenuUpdater() {
   await gsap.to(statbox, {
     duration:2,
-    x:-300,
+    x:-350,
   });
 
   while (moneyCalcActive) {
