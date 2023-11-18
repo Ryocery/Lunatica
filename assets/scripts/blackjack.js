@@ -426,6 +426,9 @@ async function statMenuUpdater() {
     await delay(1000)
   }
 
+  profitStat = parseInt(profitStat)
+  lossStat = parseInt(lossStat)
+
   totalbalStat = profitStat + lossStat
 
   document.getElementById("winstats").innerHTML = `<b>Won:</b> ${winsStat}`
