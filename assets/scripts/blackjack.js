@@ -521,7 +521,7 @@ async function moneyLogic(value = 0) {
   }
 
   profitStat = parseInt(profitStat)
-  lossStat = parseInt(loseStat)
+  lossStat = parseInt(lossStat)
 
   if (value > 0) {
     profitStat += parseInt(value)
