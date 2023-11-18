@@ -59,7 +59,9 @@ document.getElementById("backgroundmusic").src = backgroundMusic[musicNumber]
 let gameDeck = [...deck]
 let playerHand = []
 let dealerHand = []
+
 let dealerReady = false
+let betReady = false
 
 let h
 let s
@@ -68,22 +70,30 @@ let d
 let pl
 let de
 
-let controls
-let bets
-let betReady = false
+let winsStat = 0
+let tiesStat = 0
+let loseStat = 0
+
+let totalbalStat = 0
+let profitStat = 0
+let lossStat = 0
+
 
 function disableControls() {
   h = gsap.set(hitB, {
+    boxShadow:"none",
     backgroundColor:"rgba(255, 255, 255, 0.3)",
     pointerEvents:"none",
   });
 
   s = gsap.set(standB, {
+    boxShadow:"none",
     backgroundColor:"rgba(255, 255, 255, 0.3)",
     pointerEvents:"none",
   });
 
   d = gsap.set(doubleB, {
+    boxShadow:"none",
     backgroundColor:"rgba(255, 255, 255, 0.3)",
     pointerEvents:"none",
   });
