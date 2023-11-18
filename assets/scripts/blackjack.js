@@ -424,9 +424,6 @@ async function statMenuUpdater() {
     await delay(1000)
   }
 
-  profitStat = parseInt(profitStat)
-  lossStat = parseInt(lossStat)
-
   totalbalStat = profitStat + lossStat
 
   document.getElementById("winstats").innerHTML = `<b>Won:</b> ${winsStat}`
@@ -523,10 +520,13 @@ async function moneyLogic(value = 0) {
     await delay(250)
   }
 
+  profitStat = parseInt(profitStat)
+  lossStat = parseInt(loseStat)
+
   if (value > 0) {
-    profitStat += value
+    profitStat += parseInt(value)
   } else {
-    lossStat += value
+    lossStat += parseInt(value)
   }
 
   moneyCalcActive = true
