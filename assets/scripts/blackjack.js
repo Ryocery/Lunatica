@@ -434,8 +434,6 @@ async function statMenuUpdater() {
   document.getElementById("lossstats").innerHTML = `<b>Losses:</b> ${ttCash(lossStat)}`
   document.getElementById("totalbalstats").innerHTML = `<b>Total:</b> ${ttCash(totalbalStat)}`
 
-  await delay(2000)
-
   await gsap.to(statbox, {
     duration:2,
     x:0,
