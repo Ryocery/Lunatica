@@ -395,8 +395,6 @@ async function stand(double = false) {
     }
   }
 
-  statMenuUpdater()
-
   await delay(delayNr)
   pl.revert()
   de.revert()
@@ -439,6 +437,8 @@ async function statMenuUpdater() {
   document.getElementById("lossstats").innerHTML = `<b>Losses:</b> ${ttCash(lossStat)}`
   document.getElementById("totalbalstats").innerHTML = `<b>Total:</b> ${ttCash(totalbalStat)}`
 
+  await delay(2000)
+
   await gsap.to(statbox, {
     duration:2,
     x:0,
@@ -453,6 +453,10 @@ async function betButton () {
 
 async function placeBet() {
   disableControls()
+
+  if (winsStat !== 0 || tiesStat !== 0 || loseStat !== 0) {
+    statMenuUpdater()
+  }
 
   gsap.to(playercontrols, {
     delay:1,
