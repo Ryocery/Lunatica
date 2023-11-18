@@ -16,7 +16,7 @@ body {
 }
 
 #dealerBox {
-    top:25%;
+    top:23%;
     left:50%;
 }
 
@@ -229,12 +229,13 @@ body {
 }
 
 #statbox p:not(#innerstatbox p) {
+    margin: 0 1.3vw 0 1.3vw;
     background-color: #004800;
-    width: fit-content;
+    border-radius: 0.35rem 0.35rem 0 0;
     font-size: 2rem;
-    margin: 0 0 1rem;
     font-weight: bold;
     text-align: center;
+    user-select: none;
 }
 
 #innerstatbox {
@@ -305,6 +306,10 @@ body {
         top:90.5%;
         width: 30dvw;
         padding: 0.3rem 0.1rem;
+    }
+
+    #statbox {
+        top:50%;
     }
 
     #betcontrols p {

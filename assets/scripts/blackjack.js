@@ -373,20 +373,29 @@ async function stand(double = false) {
     if (win === 1) {
       winSnd.play()
       moneyLogic(document.querySelector("#betmoney").value * 2)
+      winsStat++
     } else if (win === 0.5) {
       moneyLogic(document.querySelector("#betmoney").value)
+      tiesStat++
+    } else if (win === 0) {
+      loseStat++
     }
   } else {
     if (win === 1) {
       winSnd.play()
       moneyLogic(document.querySelector("#betmoney").value * 3)
+      winsStat++
     } else if (win === 0.5) {
       moneyLogic(document.querySelector("#betmoney").value)
+      tiesStat++
     } else if (win === 0) {
       await moneyLogic(-1 * document.querySelector("#betmoney").value)
       delayNr = 1000
+      loseStat++
     }
   }
+
+  statMenuUpdater()
 
   await delay(delayNr)
   pl.revert()
@@ -403,7 +412,36 @@ async function stand(double = false) {
   await enableControls()
 
   betReady = false
+
   placeBet()
+}
+
+async function statMenuUpdater() {
+  await gsap.to(statbox, {
+    duration:2,
+    x:-300,
+  });
+
+  while (moneyCalcActive) {
+    await delay(250)
+  }
+
+  totalbalStat = profitStat + lossStat
+
+  document.getElementById("winstats").innerHTML = `<b>Won:</b> ${winsStat}`
+  document.getElementById("tiestats").innerHTML = `<b>Ties:</b> ${tiesStat}`
+  document.getElementById("losestats").innerHTML = `<b>Lost:</b> ${loseStat}`
+
+  document.getElementById("profitstats").innerHTML = `<b>Profit:</b> ${ttCash(profitStat)}`
+  document.getElementById("lossstats").innerHTML = `<b>Losses:</b> ${ttCash(lossStat)}`
+  document.getElementById("totalbalstats").innerHTML = `<b>Total:</b> ${ttCash(totalbalStat)}`
+
+  await delay(1000)
+
+  await gsap.to(statbox, {
+    duration:2,
+    x:0,
+  });
 }
 
 async function betButton () {
@@ -476,6 +514,12 @@ let moneyCalcActive = false;
 
 async function moneyLogic(value = 0) {
 
+  if (value > 0) {
+    profitStat += value
+  } else {
+    lossStat += value
+  }
+
   while (moneyCalcActive) {
     await delay(250)
   }
@@ -534,6 +578,11 @@ async function moneyLogic(value = 0) {
 }
 
 function ttCash(number) {
+
+  if (number === 0) {
+    return "$0"
+  }
+
   let formattedNumber = new Intl.NumberFormat().format(number);
   let moneyString = `$${formattedNumber}`;
   return moneyString.replaceAll("$-", "-$");
