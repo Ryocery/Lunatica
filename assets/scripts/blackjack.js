@@ -423,7 +423,7 @@ async function statMenuUpdater() {
   });
 
   while (moneyCalcActive) {
-    await delay(250)
+    await delay(1000)
   }
 
   totalbalStat = profitStat + lossStat
@@ -435,8 +435,6 @@ async function statMenuUpdater() {
   document.getElementById("profitstats").innerHTML = `<b>Profit:</b> ${ttCash(profitStat)}`
   document.getElementById("lossstats").innerHTML = `<b>Losses:</b> ${ttCash(lossStat)}`
   document.getElementById("totalbalstats").innerHTML = `<b>Total:</b> ${ttCash(totalbalStat)}`
-
-  await delay(1000)
 
   await gsap.to(statbox, {
     duration:2,
