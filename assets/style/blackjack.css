@@ -254,6 +254,10 @@ body {
     margin-bottom: 2rem;
 }
 
+#innerstatbox p:nth-of-type(5) {
+    margin-bottom: 2rem;
+}
+
 @media (max-height: 900px) {
     #playerBox {
         top: 64%;

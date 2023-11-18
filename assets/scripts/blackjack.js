@@ -70,13 +70,23 @@ let d
 let pl
 let de
 
+let balance = document.getElementById("balance").innerHTML.replace(",", "")
+let moneyCalc = document.getElementById("moneycalc").innerHTML.replace(",", "")
+balance = parseInt(balance.replace("$", ""))
+moneyCalc = parseInt(moneyCalc.replace("$", ""))
+
+let moneyCalcActive = false;
+
 let winsStat = 0
 let tiesStat = 0
 let loseStat = 0
 
-let totalbalStat = 0
+let totalBalStat = 0
 let profitStat = 0
 let lossStat = 0
+
+let max = parseInt(balance)
+let min = parseInt(balance)
 
 
 function disableControls() {
@@ -424,15 +434,26 @@ async function statMenuUpdater() {
     await delay(1000)
   }
 
-  totalbalStat = profitStat + lossStat
+  totalBalStat = profitStat + lossStat
+
+  if (balance > max) {
+    max = balance
+  }
+
+  if (balance < min) {
+    min = balance
+  }
 
   document.getElementById("winstats").innerHTML = `<b>Won:</b> ${winsStat}`
   document.getElementById("tiestats").innerHTML = `<b>Ties:</b> ${tiesStat}`
   document.getElementById("losestats").innerHTML = `<b>Lost:</b> ${loseStat}`
 
+  document.getElementById("max").innerHTML = `<b>Highest:</b> ${ttCash(max)}`
+  document.getElementById("min").innerHTML = `<b>Lowest:</b> ${ttCash(min)}`
+
   document.getElementById("profitstats").innerHTML = `<b>Profit:</b> ${ttCash(profitStat)}`
   document.getElementById("lossstats").innerHTML = `<b>Losses:</b> ${ttCash(lossStat)}`
-  document.getElementById("totalbalstats").innerHTML = `<b>Total:</b> ${ttCash(totalbalStat)}`
+  document.getElementById("totalBalStats").innerHTML = `<b>Total:</b> ${ttCash(totalBalStat)}`
 
   if (win === 0) {
     await delay(1000)
@@ -508,13 +529,6 @@ async function placeBet() {
   dealerStart()
   dealCards()
 }
-
-let balance = document.getElementById("balance").innerHTML.replace(",", "")
-let moneyCalc = document.getElementById("moneycalc").innerHTML.replace(",", "")
-balance = parseInt(balance.replace("$", ""))
-moneyCalc = parseInt(moneyCalc.replace("$", ""))
-
-let moneyCalcActive = false;
 
 async function moneyLogic(value = 0) {
 
