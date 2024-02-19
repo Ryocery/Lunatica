@@ -15,6 +15,29 @@
     user-select: none;
 }
 
+@media (max-height: 689px) {
+    .login-box {
+        width: 400px;
+        padding: 30px;
+    }
+
+    .login-box h2 {
+        margin: 1rem 0 20px;
+        font-size: 16px;
+        padding: 0;
+        color: #fff;
+        text-align: center;
+    }
+
+    .login-box h3 {
+        margin: 0 0 8px;
+        font-size: 14px;
+        padding: 0;
+        color: #fff;
+        text-align: center;
+    }
+}
+
 .login-box h2 {
     margin: 2rem 0 30px;
     padding: 0;
