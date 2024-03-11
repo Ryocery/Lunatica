@@ -1,108 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
 video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    min-width: 100%;
-    min-height: 100%;
-    width: auto;
-    height: auto;
-    z-index: -1;
-}
-
-.glitch-container {
-    min-height: 100vh;
-    display: grid;
-    place-items: center;
-    color: white;
-    font-family: sans-serif;
-
     position: absolute;
-    top: 16%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 100%;
-    user-select: none;
-}
-
-#academyTitle {
-    margin-bottom: 2vh;
-    font-size: 3.1vh;
-}
-
-.warning {
-    color: #f40303 !important;
-}
-
-.glitch {
-    font-size: 7vw;
-    font-weight: 700;
-    white-space: nowrap;
-    text-transform: uppercase;
-    position: relative;
-
-    text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-    -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
-    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-
-    animation: glitch 500ms infinite;
-}
-
-.glitch span {
-    position: absolute;
+    height: 100%;
+    object-fit: cover;
     top: 0;
     left: 0;
+    z-index: 0;
 }
 
-.glitch span:first-child {
-    animation: glitch 650ms infinite;
-    clip-path: polygon(0 0, 100% 0, 100% 45%, 0 45%);
-    transform: translate(-0.025em, -0.0125em);
-    /* color: green; */
-    opacity: 0.8;
+main {
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+    position: fixed;
+    padding: 3rem;
+    width: 60%;
+    left:50%;
+    border: 2px solid rgba(255,255,255,.2);
+    border-radius: 1rem;
+    top:50%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    display: flex;
+    gap:2rem;
 }
 
-.glitch span:last-child {
-    animation: glitch 375ms infinite;
-    clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
-    transform: translate(0.0125em, 0.025em);
-    /* color: red; */
-    opacity: 0.8;
+.game {
+    padding: 1rem;
+    border-radius: 1rem;
+    border: 0.1rem solid rgba(255,255,255,.2);
+    background-color: rgba(255,255,255,0.3);
+    backdrop-filter: blur(50px);
+    font-family: "Montserrat";
+    text-align: center;
+    font-weight: bold;
+    font-size: 2vw;
+    transition: 0.3s;
+    position: relative;
+    cursor: pointer;
+    top: 0;
+    user-select: none;
+    outline: none;
 }
 
-/* https://web.dev/prefers-reduced-motion/#(bonus)-forcing-reduced-motion-on-all-websites */
+.game:hover {
+    background-color: rgba(0, 0, 0, 0);
+    top:-15px;
+    color:white;
+}
 
-@keyframes glitch {
-    0% {
-        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-        -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    14% {
-        text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-        -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    15% {
-        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-        0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    49% {
-        text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-        0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    50% {
-        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-        0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    99% {
-        text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-        0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
-    100% {
-        text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
-        -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
-    }
+.game:hover img {
+    filter: brightness(0) invert(1);
+}
+
+.game img {
+    width: 100%;
+    height: auto;
+    pointer-events: none;
 }

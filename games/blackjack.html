@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lunatica: Blackjack</title>
+    <link rel="stylesheet" href="../assets/style/blackjack.css">
+    <link rel="icon" type="image/x-icon" href="../assets/media/poker-cards.png">
+</head>
+<body>
+<audio id="backgroundmusic" src="../assets/media/mus_wd_trainingclementine.mp3" loop autoplay></audio>
+<audio id="backgroundambience" src="../assets/media/casino-ambiance-19130.mp3" loop autoplay></audio>
+
+<div id="moneybox">
+    <p id="balance">$20,000</p>
+    <p id="moneycalc"></p>
+</div>
+<div id="statbox">
+    <p id="stat">STATISTICS</p>
+    <div id="innerstatbox">
+        <p id="profitstats"><b>Profit:</b> $0</p>
+        <p id="lossstats"><b>Losses:</b> $0</p>
+        <p id="totalBalStats"><b>Total:</b> $0</p>
+        <p id="max"><b>Highest:</b> $20,000</p>
+        <p id="min"><b>Lowest:</b> $20,000</p>
+        <p id="winstats"><b>Won:</b> 0</p>
+        <p id="tiestats"><b>Tied:</b> 0</p>
+        <p id="losestats"><b>Lost:</b> 0</p>
+    </div>
+</div>
+<div class="cardbox" id="dealerBox">
+    <p class="titlebox">Dealer's Cards</p>
+    <div class="cards" id="dealercards">
+    </div>
+</div>
+<div class="cardbox" id="playerBox">
+    <p class="titlebox">Player's Cards</p>
+    <div class="cards" id="playercards">
+        <p class="count" id="playercount">6</p>
+
+    </div>
+</div>
+<div id="playercontrols">
+    <button id="hitB" onclick="hit()">Hit</button>
+    <button id="standB" onclick="stand()">Stand</button>
+    <button id="doubleB" onclick="double()">Double</button>
+</div>
+<div id="betcontrols">
+    <p>Place your bet!</p>
+    <label for="betmoney"></label>
+    <select name="betmoney" id="betmoney">
+        <option value="500">$500</option>
+        <option selected="selected" value="1000">$1,000</option>
+        <option value="2000">$2,000</option>
+        <option value="5000">$5,000</option>
+        <option value="10000">$10,000</option>
+        <option value="20000">$20,000</option>
+        <option value="50000">$50,000</option>
+        <option value="100000">$100,000</option>
+    </select>
+    <button id="betready" onclick="betButton()">Bet</button>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="../assets/scripts/blackjack.js"></script>
+<script>
+  // Background Music //
+  let music = document.getElementById("backgroundmusic")
+  let ambience = document.getElementById("backgroundambience")
+  ambience.volume = 0.4
+</script>
+</body>
+</html>

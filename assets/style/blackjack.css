@@ -1,0 +1,363 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+
+html {
+    height: auto;
+    min-height: 100%;
+    background-size: cover;
+    background-image: url("../media/2304.w032.n002.943A.p30.943.jpg");
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+}
+
+#dealerBox {
+    top:23%;
+    left:50%;
+}
+
+#playerBox {
+    top:60%;
+    left:50%;
+}
+
+.cardbox{
+    background-color: rgba(255,255,255, 0.35);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.43);
+    border: 0.2rem solid rgba(255,255,255,1);
+    border-radius: 0.45rem;
+    min-width: 40%;
+    padding: 2rem;
+    height: 23%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    user-select: none;
+}
+
+.titlebox {
+    position: absolute;
+    top: -35px;
+    background-color: rgba(255,255,255);
+    border-radius: 1rem 1rem 0 0;
+    padding: 0.2rem 3rem;
+    font-family: "Montserrat", serif;
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.cards {
+    border: 0.1rem solid rgb(210, 210, 210);
+    background-clip: border-box;
+    border-radius: 0.45rem;
+    background-color: rgba(0, 0, 0, 0.35);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.43);
+    height: calc(100% - 1.5rem);
+    padding: 0.70rem;
+    list-style: none;
+    position: relative;
+    display: flex;
+    align-items: center;
+    align-self: center;
+    gap:1rem;
+}
+
+.cards img {
+    height: 100%;
+}
+
+.cards img{
+    position: relative;
+    top:0;
+    transition: 0.3s;
+}
+
+.cards img:hover {
+    top:-15px;
+}
+
+#playercontrols {
+    top:80%;
+    left:50%;
+    min-width: 40%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    gap:2rem;
+
+}
+
+#playercontrols button {
+    font-family: "Montserrat", serif;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.43);
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: lightgray;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#playercontrols button:hover {
+    box-shadow: none;
+    background-color: white;
+}
+
+#playercontrols button:active {
+    box-shadow: none;
+    background-color: black;
+    color: white;
+}
+
+.count {
+    color: transparent;
+    font-family: "Montserrat", serif;
+    font-weight: bold;
+    margin-right: 1rem;
+    font-size: 4rem;
+    -webkit-background-clip: text;
+}
+
+#betcontrols {
+    font-family: Montserrat, serif;
+    width: 25%;
+    position: absolute;
+    display: block;
+    top:87%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    background-color: rgba(255,255,255, 0.35);
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.43);
+    border: 0.2rem solid rgba(255,255,255,1);
+    user-select: none;
+}
+
+#betcontrols select {
+    padding: 0.9rem 1.9rem;
+    font-family: "Montserrat", serif;
+    border-radius: 0.3rem;
+    border: 0.1rem solid white;
+    background-color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+#betcontrols select:hover {
+    border: 0.1rem solid black;
+}
+
+#betcontrols button {
+    font-family: "Montserrat", serif;
+    box-shadow: 10px 5px 5px rgba(0, 0, 0, 0.43);
+    padding: 1rem 2rem;
+    border-radius: 0.3rem;
+    border: none;
+    background-color: lightgray;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#betcontrols button:hover {
+    box-shadow: none;
+    background-color: white;
+}
+
+#betcontrols button:active {
+    box-shadow: none;
+    background-color: black;
+    color: white;
+}
+
+#betcontrols p {
+    color: white;
+    font-size: 2.4rem;
+    margin: 0 0 1rem;
+}
+
+#moneybox {
+    font-family: "Montserrat", serif;
+    color: white;
+    margin-top: 2rem;
+    display: block;
+    width: fit-content;
+    text-align: right;
+    user-select: none;
+}
+
+#balance {
+    margin: 0;
+    font-size: 3vh;
+    display: block;
+    background: darkgreen;
+    border-radius: 0 0.25rem 0.25rem 0;
+    text-align: center;
+    vertical-align: center;
+    min-width: 14vw;
+    padding-top: 1.5vh;
+    padding-bottom: 1.5vh;
+}
+
+#moneybox p + p {
+    margin: 0.3rem 0;
+    font-size: 2.3vh;
+    font-weight: bold;
+}
+
+#statbox {
+    font-family: "Montserrat", serif;
+    position: absolute;
+    color: white;
+    transform: translate(0, -50%);
+    border-radius: 0 0.25rem 0.25rem 0;
+    top: 40%;
+    left: 0;
+    width: fit-content;
+    display: block;
+    background-color: darkgreen;
+    min-width: 14vw;
+    padding: 1rem;
+}
+
+#statbox p:not(#innerstatbox p) {
+    margin: 0 10% 0 10%;
+    background-color: #004800;
+    border-radius: 0.35rem 0.35rem 0 0;
+    font-size: 2.8vh;
+    font-weight: bold;
+    text-align: center;
+    user-select: none;
+}
+
+#innerstatbox {
+    padding: 1rem;
+    border: 0.2rem solid #004800;
+    border-radius: 0.5rem;
+    background-color: #002f00;
+    line-height: 1.3rem;
+}
+
+#innerstatbox p {
+    margin: 0;
+}
+
+#innerstatbox p:nth-of-type(3) {
+    margin-bottom: 2rem;
+}
+
+#innerstatbox p:nth-of-type(5) {
+    margin-bottom: 2rem;
+}
+
+@media (max-height: 900px) {
+    #playerBox {
+        top: 64%;
+    }
+
+    #betcontrols {
+        top:90%;
+        padding: 0.8rem;
+    }
+
+    #betcontrols p {
+        font-size: 1.3rem;
+    }
+
+    #betcontrols button {
+        padding: 0.3rem 1rem;
+        border: 0.15rem solid white;
+    }
+
+    #betcontrols button:hover {
+        border: 0.15rem solid black;
+    }
+
+    #betcontrols select {
+        padding: 0.3rem 2vw;
+        border: 0.15rem solid white;
+    }
+
+    #betcontrols select:hover {
+        border: 0.15rem solid black;
+    }
+
+    #playercontrols {
+        top:85%;
+        left:50%;
+    }
+
+    #playercontrols button {
+        padding: 0.8rem 1rem;
+    }
+
+    .titlebox {
+        top: -30px;
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-height: 590px) {
+    #betcontrols {
+        top:90.5%;
+        width: 30dvw;
+        padding: 0.3rem 0.1rem;
+    }
+
+    #statbox {
+        top:50%;
+    }
+
+    #betcontrols p {
+        font-size: 0.8rem;
+    }
+
+    #betcontrols button {
+        padding: 0.2rem 1rem;
+    }
+
+    #betcontrols select {
+        padding: 0.2rem 2vw;
+    }
+
+    .titlebox {
+        display: none;
+    }
+
+    #playercontrols {
+        top:88%;
+    }
+}
+
+@media (max-height: 500px) {
+    .titlebox {
+        display: none;
+    }
+
+    #playercontrols button {
+        padding: 2dvh 2dvw;
+    }
+
+    #betcontrols {
+        width: 30%;
+    }
+
+    #betcontrols p {
+        font-size: 0.8rem;
+        margin-bottom: 1vh;
+    }
+}
+
+@media (max-width: 936px) {
+    #betcontrols {
+        width: 40%;
+    }
+}
